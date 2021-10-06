@@ -1,0 +1,56 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.debug.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div id="pdf">
+
+	<table>
+	  <tr>
+		<th></th>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Address</th>
+	  </tr>
+	  <tr>
+	  <td><input type="checkbox" id="user_list"></td>
+		<td>Muzaffer</td>
+		<td>md@gmail.com</td>
+		<td>patna</td>
+	  </tr>
+	  <tr>
+		<td><input type="checkbox" id="user_list"></td>
+		<td>Rajan</td>
+		<td>rajan@gmail.com</td>
+		<td>Chandigerh</td>
+	  </tr>
+		<tr>
+		<td><input type="checkbox" id="user_list"></td>
+		<td>Tahrid</td>
+		<td>tahrid@gmail.com</td>
+		<td>Shivan</td>
+	  </tr>
+	  <tr>
+		<td><input type="checkbox" id="user_list"></td>
+		<td>Ankit</td>
+		<td>ankit@gmail.com</td>
+		<td>Delhi</td>
+	  </tr>
+	</table>
+	
+</div>
+
+<button id="cmd">generate PDF</button>
+
+<script>
+$(document).ready(function(){
+
+	var table = "<tr><td>Alfreds Futterkiste</td><td>Maria Anders</td><td>Germany</td></tr>";
+
+    var doc = new jsPDF();
+
+    $('#cmd').click(function () {
+		doc.fromHTML($('#pdf').get(0), 10, 10, {'width': 180});
+		doc.autoPrint();
+		doc.save('sample-file.pdf');
+    });
+});
+</script>
